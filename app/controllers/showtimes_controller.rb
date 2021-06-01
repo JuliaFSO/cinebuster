@@ -1,6 +1,6 @@
 class ShowtimesController < ApplicationController
     def index
-      @showtimes = Showtimes.all
+      @showtimes = Showtime.all
     end
 
     def show
