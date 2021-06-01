@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_31_213823) do
+ActiveRecord::Schema.define(version: 2021_06_01_172720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2021_05_31_213823) do
   create_table "showtimes", force: :cascade do |t|
     t.time "session_time"
     t.string "room"
-    t.string "movie_list"
     t.bigint "user_id", null: false
     t.float "price"
     t.boolean "available", default: true
@@ -47,8 +46,7 @@ ActiveRecord::Schema.define(version: 2021_05_31_213823) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.boolean "cinema", default: true
-    t.string "username"
+    t.string "name"
     t.string "email"
     t.string "password"
     t.datetime "created_at", precision: 6, null: false
