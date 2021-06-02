@@ -11,6 +11,7 @@ class ShowtimesController < ApplicationController
 
     def show
       @showtime = Showtime.find(params[:id])
+      @ticket = Ticket.new
     end
 
     def create
