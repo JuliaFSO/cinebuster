@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_202957) do
+ActiveRecord::Schema.define(version: 2021_06_02_170839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_202957) do
   end
 
   create_table "showtimes", force: :cascade do |t|
-    t.time "session_time"
+    t.datetime "session_time"
     t.string "room"
     t.bigint "user_id", null: false
     t.float "price"
