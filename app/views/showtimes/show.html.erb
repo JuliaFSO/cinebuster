@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+
+<h3>Sessão Nome do filme</h3>
+
+<ul>
+<li><%= @showtime.session_time %></li>
+<li><%= @showtime.room %></li>
+<li><%= @showtime.price %></li>
+<li><%= @showtime.session_time %></li>
+</ul>
+
+<%= link_to 'Add new showtime', new_showtime_path(@showtime) %>
