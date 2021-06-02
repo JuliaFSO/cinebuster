@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+
+<h3>Tickets</h3>
+
+<ul>
+<li><%= @ticket.showtime.session_time %></li>
+<li><%= @ticket.showtime.room %></li>
+<li><%= "R$ #{@ticket.showtime.price}" %></li>
+<li><%= @movie.title %></li>
+<li><%= "#{@ticket.number_people} convidados" %></li>
+</ul>
+
+<div class="col-12 col-md-3 row justify-content-center">
+    <%= image_tag @ticket.movie.poster_url%>
+</div>
+
+
+<%= link_to 'Voltar para sessões', showtimes_path %>

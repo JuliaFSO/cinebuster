@@ -1,13 +1,25 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
 
-<h3>Sessão Nome do filme</h3>
+<h2>Sessão Nome do filme</h2>
 
 <ul>
-<li><%= @showtime.session_time %></li>
-<li><%= @showtime.room %></li>
-<li><%= @showtime.price %></li>
-<li><%= @showtime.session_time %></li>
+    <li><%= @showtime.session_time %></li>
+    <li><%= @showtime.room %></li>
+    <li><%= @showtime.price %></li>
 </ul>
 
-<%= link_to 'Add new showtime', new_showtime_path(@showtime) %>
+<div class="container">
+    <h1>Reservar uma sessão</h1>
+
+    <%= simple_form_for [@showtime, @ticket] do |f| %>
+    <%= f.association :movie, label:false, collection: Movie.all.order(:title), prompt: 'Choose a movie', input_html: { class: 'form-select' } %>
+    <%= f.input :number_people %>
+
+    <%= f.button :submit %>
+
+    <% end %>
+</div>
+
+
+<%= link_to 'Anuncie nova sessão', new_showtime_path(@showtime) %>
