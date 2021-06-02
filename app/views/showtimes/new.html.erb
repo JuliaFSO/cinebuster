@@ -1,0 +1,15 @@
+
+<div class="container">
+<h1>Criar uma nova sessão</h1>
+
+<%= simple_form_for (@showtime) do |f| %>
+<%= f.input :session_time %>
+<%# f.input :session_date %>
+<%= f.input :room %>
+<%= f.input :price %>
+
+<%= f.button :submit %>
+
+<% end %>
+</div>
+
