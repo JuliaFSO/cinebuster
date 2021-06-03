@@ -1,19 +1,29 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
 
-<h3>Tickets</h3>
+  <h1 class="text-center pb-5">TICKET</h1>
+  <div class="d-flex justify-content-around align-items-center">
 
-<ul>
-<li><%= @ticket.showtime.session_time %></li>
-<li><%= @ticket.showtime.room %></li>
-<li><%= "R$ #{@ticket.showtime.price}" %></li>
-<li><%= @movie.title %></li>
-<li><%= "#{@ticket.number_people} convidados" %></li>
-</ul>
+    <div class="movie-container">
+        <%=image_tag @ticket.movie.poster_url, alt: @ticket.movie.title, class: 'movie-img rounded' %>
+        <div class="title-container">
+          <p><%= @movie.title %></p>
+        </div>
+    </div>
 
-<div class="col-12 col-md-3 row justify-content-center">
-    <%= image_tag @ticket.movie.poster_url%>
+    <div class="ticket-information">
+      <h2><%= @ticket.showtime.room %></h3>
+      <br>
+      <br>
+      <h3><%= @ticket.showtime.session_time %></h3>
+      <br>
+      <h3><%= "#{@ticket.number_people} convidados" %></h3>
+      <br>
+      <h3><%= "R$ #{@ticket.showtime.price}" %></h3>
+    </div>
+
+  </div>
+  <div class="text-center">
+    <%= link_to 'Voltar para os tickets', tickets_path %>
+  </div>
 </div>
-
-
-<%= link_to 'Voltar para sessões', showtimes_path %>
