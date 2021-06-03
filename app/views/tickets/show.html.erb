@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
 
-  <h1 class="text-center pb-5">TICKET</h1>
+  <h1 class="text-center m-5">Ticket</h1>
   <div class="d-flex justify-content-around align-items-center">
 
     <div class="movie-container">
         <%=image_tag @ticket.movie.poster_url, alt: @ticket.movie.title, class: 'movie-img rounded' %>
         <div class="title-container">
-          <p><%= @movie.title %></p>
+          <p><%= @movie.title.slice(0,27)+(@movie.title.length > 27 ? "..." : "") %></p>
         </div>
     </div>
 
@@ -24,6 +24,6 @@
 
   </div>
   <div class="text-center">
-    <%= link_to 'Voltar para os tickets', tickets_path %>
+    <%= link_to 'Voltar para os tickets', tickets_path, class:"btn btn-dark" %>
   </div>
 </div>
