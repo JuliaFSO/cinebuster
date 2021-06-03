@@ -1,7 +1,7 @@
 <%= render 'shared/banner'%>
 
 
-<div class="d-flex row justify-content-center w-75 mx-auto">
+<div class="d-flex row justify-content-center w-75 mx-auto mb-5">
 
   <div class="cards d-flex row col-8 flex-row-reverse" >
     <% @showtimes.each do |showtime| %>
@@ -28,5 +28,15 @@
       <img class="rounded" src="/assets/pub_limpeza.png" width="380" height="300" />
     </div>
   </div>
+</div>
 
+<div>
+  <% movie.poster_url.each do |poster_url| %>
+    <div class="col-3 movie-container-p m-2">
+      <%=image_tag movie.poster_url, class: 'movie-img-p rounded' %>
+      <div class="title-container-p">
+        <p><%= movie.title.slice(0,27)+(movie.title.length > 27 ? "..." : "") %></p>
+      </div>
+    </div>
+  <% end %>
 </div>
