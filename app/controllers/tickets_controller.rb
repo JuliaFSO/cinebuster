@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.where(user_id: current_user)
   end
 
   def show
@@ -13,8 +13,14 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     @ticket.showtime = @showtime
     @ticket.user = current_user
-    flash[:notice] = @ticket.errors.full_messages.to_sentence unless @ticket.save
-    redirect_to @ticket
+    if @ticket.save 
+      redirect_to @ticket
+      @showtime.available = false 
+      @showtime.save      
+    else
+      flash[:notice] = @ticket.errors.full_messages.to_sentence unless @ticket.save
+      redirect_to @showtime
+    end
   end
 
   private

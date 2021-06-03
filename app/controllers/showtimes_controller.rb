@@ -2,7 +2,7 @@ class ShowtimesController < ApplicationController
     skip_before_action :authenticate_user!, only: [ :index, :show ]
 
     def index
-      @showtimes = Showtime.all
+      @showtimes = Showtime.where(available: true)
     end
 
     def new
