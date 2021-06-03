@@ -1,5 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-    <h2><%= link_to '📽️🍿', root_path, class: "nav-link" %></h2>
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "logo.png" %>
+  <% end %>
   
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -9,13 +11,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to 'Login', new_user_registration_path, class: "nav-link" %>
+        <%= link_to 'Login', new_user_registration_path, class: "navbar-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to 'Sessões', showtimes_path, class: "nav-link" %>
+        <%= link_to 'Sessões', showtimes_path, class: "navbar-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to 'Tickets', tickets_path, class: "nav-link" %>
+        <%= link_to 'Tickets', tickets_path, class: "navbar-link" %>
       </li>
     </ul>
   </div>
