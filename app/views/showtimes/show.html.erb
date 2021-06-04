@@ -1,25 +1,19 @@
-<p id="notice"><%= notice %></p>
-<div class="container">
+<div class="container d-flex flex-column justify-content-center">
+  <div class="w-50 align-self-center p-5">
+    <h2>Sessão de <%= @showtime.session_time.strftime("%d/%m") %></h2>
+    <ul>
+      <li><%= @showtime.session_time %></li>
+      <li><%= @showtime.room %></li>
+      <li><%= @showtime.price %></li>
+      </ul>
 
-<h2>Sessão Nome do filme</h2>
+      <h2>Reservar uma sessão</h2>
+      <%= simple_form_for [@showtime, @ticket] do |f| %>
+      <%= f.association :movie, label:false, collection: Movie.all.order(:title), prompt: 'Escolha o filme', input_html: { class: 'form-select' } %>
+      <%= f.input :number_people, label: false, placeholder: 'Número de convidados' %>
+      <%= f.button :submit, 'RESERVAR SESSÃO', class:'btn mb-2 btn-block' %>
+      <% end %>
+      <>
+  </div>
 
-<ul>
-    <li><%= @showtime.session_time %></li>
-    <li><%= @showtime.room %></li>
-    <li><%= @showtime.price %></li>
-</ul>
-
-<div class="container">
-    <h1>Reservar uma sessão</h1>
-
-    <%= simple_form_for [@showtime, @ticket] do |f| %>
-    <%= f.association :movie, label:false, collection: Movie.all.order(:title), prompt: 'Choose a movie', input_html: { class: 'form-select' } %>
-    <%= f.input :number_people %>
-
-    <%= f.button :submit %>
-
-    <% end %>
 </div>
-
-
-<%= link_to 'Anuncie nova sessão', new_showtime_path(@showtime) %>
