@@ -15,7 +15,7 @@
       <li><%= @showtime.user.name %></li>
       </ul>
       <% if @showtime.user == current_user %>
-        <%= link_to 'Anuncie nova sessão', new_showtime_path(@showtime) %>
+        <%= link_to 'Anuncie nova sessão', new_showtime_path(@showtime), class: "btn btn-dark" %>
       <% else %>
         <h2>Reservar uma sessão</h2>
         <%= simple_form_for [@showtime, @ticket] do |f| %>
@@ -25,5 +25,4 @@
         <% end %>
       <% end %>
   </div>
-  <%= link_to 'Anuncie nova sessão', new_showtime_path(@showtime) %>
 </div>
