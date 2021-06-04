@@ -1,0 +1,12 @@
+.btn {
+  background-color: #107721 !important;
+  opacity: 1;
+  color: white;
+  border-radius: 50px;
+    &:hover {
+      color: white;
+      background-color: #107721;
+      opacity: 0.8;
+
+  }
+}
