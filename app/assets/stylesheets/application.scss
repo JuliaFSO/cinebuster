@@ -14,3 +14,12 @@
 body {
   background-color: white;
 }
+
+html, body {
+  height: auto;
+  min-height: 100%;
+}
+
+.buster-content {
+  min-height: 77vh !important;
+}
