@@ -1,5 +1,9 @@
 
-<div class="container d-flex flex-column justify-content-center">
+<div class="container d-flex justify-content-center">
+  <div class="align-self-flex-end pt-5">
+    <img class="img-sessao" src='<%= IMG_ARRAY.sample %>' width="350px">
+  </div>
+
   <div class="w-50 align-self-center p-5">
     <h2>Sessão de <%= @showtime.session_time.strftime("%d/%m") %></h2>
     <ul>
