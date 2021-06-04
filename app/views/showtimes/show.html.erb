@@ -1,18 +1,28 @@
 
-<div class="container d-flex flex-column justify-content-center">
+
+<div class="container d-flex justify-content-center">
+  <div class="align-self-flex-end pt-5">
+    <img class="img-sessao" src='<%= IMG_ARRAY.sample %>' width="350px">
+  </div>
+
   <div class="w-50 align-self-center p-5">
     <h2>Sessão de <%= @showtime.session_time.strftime("%d/%m") %></h2>
     <ul>
       <li><%= @showtime.session_time %></li>
       <li><%= @showtime.room %></li>
       <li><%= @showtime.price %></li>
-      </ul>
 
-      <h2>Reservar uma sessão</h2>
-      <%= simple_form_for [@showtime, @ticket] do |f| %>
-      <%= f.association :movie, label:false, collection: Movie.all.order(:title), prompt: 'Escolha o filme', input_html: { class: 'form-select' } %>
-      <%= f.input :number_people, label: false, placeholder: 'Número de convidados' %>
-      <%= f.button :submit, 'RESERVAR SESSÃO', class:'btn mb-2 btn-block' %>
+      <li><%= @showtime.user.name %></li>
+      </ul>
+      <% if @showtime.user == current_user %>
+        <%= link_to 'Anuncie nova sessão', new_showtime_path(@showtime) %>
+      <% else %>
+        <h2>Reservar uma sessão</h2>
+        <%= simple_form_for [@showtime, @ticket] do |f| %>
+          <%= f.association :movie, label:false, collection: Movie.all.order(:title), prompt: 'Escolha o filme', input_html: { class: 'form-select' } %>
+          <%= f.input :number_people, label: false, placeholder: 'Número de convidados' %>
+          <%= f.button :submit, 'RESERVAR SESSÃO', class:'btn mb-2 btn-block' %>
+        <% end %>
       <% end %>
   </div>
   <%= link_to 'Anuncie nova sessão', new_showtime_path(@showtime) %>
