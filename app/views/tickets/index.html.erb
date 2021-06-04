@@ -1,14 +1,19 @@
-<p id="notice"><%= notice %></p>
 <div class="container">
 
-<h1>Tickets</h1>
-<% @tickets.each do |ticket| %>
-    <%= link_to ticket_path(ticket) do %>
-      <div class="card-category">
-        <%= ticket.movie.title %> <%= ticket.number_people %>
-      </div>
-    <% end %>
-    <hr>
-  <% end %>
+  <h1 class="text-center m-5">Tickets</h1>
 
+  <div class="d-flex flex-wrap row justify-content-around align-items-center">
+
+      <% @tickets.each do |ticket| %>
+        <%= link_to ticket_path(ticket) do %>
+            <div class="col-3 movie-container-p m-2">
+              <%=image_tag ticket.movie.poster_url, class: 'movie-img-p rounded' %>
+              <div class="title-container-p">
+                <p><%= ticket.movie.title.slice(0,27)+(ticket.movie.title.length > 27 ? "..." : "") %></p>
+              </div>
+            </div>
+        <% end %>
+      <% end %>
+
+  </div>
 </div>

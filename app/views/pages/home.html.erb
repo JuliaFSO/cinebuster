@@ -1,63 +1,27 @@
 <%= render 'shared/banner'%>
 
 
-<div class="container">
+<div class="d-flex row justify-content-center w-75 mx-auto">
 
-  <div class="cards">
-
-    <div class="card-category d-flex align-items-end" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1597002973885-8c90683fa6e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1045&q=80)">
-      <div class="d-inline-flex flex-grow-1">
-        <div class="w-100 pl-3">
-          <h4>Sala</h4>
-          <p>R$ 300,00</p>
-        </div>
-        <div class="flex-shrink-1 align-item-end pr-3 pt-3">
-          <p>16/06</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1597002973885-8c90683fa6e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1045&q=80)">
-      <div class="d-inline-flex flex-grow-1">
-        <div class="w-100 pl-3 pt-2">
-          <h4>Sala</h4>
-          <p>R$ 300,00</p>
-        </div>
-        <div class="flex-shrink-1 align-item-end pr-3 pt-3">
-          <p>16/06</p>
+  <div class="cards d-flex row col-8 flex-row-reverse" >
+    <% @showtimes.each do |showtime| %>
+      <div class="card-category d-flex align-items-end" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1597002973885-8c90683fa6e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1045&q=80)">
+        <div class="d-inline-flex flex-grow-1">
+          <div class="w-100 pl-3">
+            <h4> <%= showtime.room %> </h4>
+            <p>R$ <%= showtime.price %></p>
+          </div>
+          <div class="flex-shrink-1 align-item-end pr-3 pt-3">
+            <p> <%= showtime.session_time.strftime("%d/%m") %> </p>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="card-category">
-      <img class="rounded" src="/assets/pub_sessao.png" width="380" height="300"/>
-    </div>
+    <% end %>
   </div>
 
-  <div class="cards mt-3" >
-
-    <div class="card-category d-flex align-items-end" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1597002973885-8c90683fa6e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1045&q=80)">
-      <div class="d-inline-flex flex-grow-1">
-        <div class="w-100 pl-3">
-          <h4>Sala</h4>
-          <p>R$ 300,00</p>
-        </div>
-        <div class="flex-shrink-1 align-item-end pr-3 pt-3">
-          <p>16/06</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1597002973885-8c90683fa6e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1045&q=80)">
-      <div class="d-inline-flex flex-grow-1">
-        <div class="w-100 pl-3 pt-2">
-          <h4>Sala</h4>
-          <p>R$ 300,00</p>
-        </div>
-        <div class="flex-shrink-1 align-item-end pr-3 pt-3">
-          <p>16/06</p>
-        </div>
-      </div>
+  <div class="col-3">
+    <div class="card-category">
+      <img class="rounded" src="/assets/pub_sessao.png" width="380" height="300"/>
     </div>
 
     <div class="card-category">

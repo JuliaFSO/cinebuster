@@ -1,3 +1,4 @@
+
 <div class="container d-flex flex-column justify-content-center">
   <div class="w-50 align-self-center p-5">
     <h2>Sessão de <%= @showtime.session_time.strftime("%d/%m") %></h2>
@@ -13,7 +14,6 @@
       <%= f.input :number_people, label: false, placeholder: 'Número de convidados' %>
       <%= f.button :submit, 'RESERVAR SESSÃO', class:'btn mb-2 btn-block' %>
       <% end %>
-      <>
   </div>
-
+  <%= link_to 'Anuncie nova sessão', new_showtime_path(@showtime) %>
 </div>
