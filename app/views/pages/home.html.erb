@@ -3,9 +3,9 @@
 
 <div class="d-flex row justify-content-center w-75 mx-auto mb-5">
 
-  <div class="cards d-flex row col-8 flex-row-reverse" >
+  <div class="cards d-flex row col-8 flex-row ml-auto justify-content-start" >
     <% @showtimes.each do |showtime| %>
-      <div class="card-category d-flex align-items-end" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1597002973885-8c90683fa6e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1045&q=80)">
+      <div class="col-5 card-category d-flex align-items-end mx-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1597002973885-8c90683fa6e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1045&q=80)">
         <div class="d-inline-flex flex-grow-1">
           <div class="w-100 pl-3">
             <h4> <%= showtime.room %> </h4>
@@ -19,8 +19,8 @@
     <% end %>
   </div>
 
-  <div class="col-3">
-    <div class="card-category">
+  <div class="col-3 propaganda mr-auto pr-5">
+    <div class="card-category mb-3">
       <img class="rounded" src="/assets/pub_sessao.png" width="380" height="300" />
     </div>
 
@@ -28,15 +28,20 @@
       <img class="rounded" src="/assets/pub_limpeza.png" width="380" height="300" />
     </div>
   </div>
-</div>
+  </div>
 
-<div>
-  <% movie.poster_url.each do |poster_url| %>
-    <div class="col-3 movie-container-p m-2">
-      <%=image_tag movie.poster_url, class: 'movie-img-p rounded' %>
-      <div class="title-container-p">
-        <p><%= movie.title.slice(0,27)+(movie.title.length > 27 ? "..." : "") %></p>
+  <div class="text-center">
+    <%= link_to 'Ver mais', showtimes_path, class:"btn btn-flat mb-5" %>
+  </div>
+
+  <div class="justify-content-around col-9 d-flex flex-wrap row align-items-center mx-auto">
+    <% @movies.each do |movie| %>
+      <div class="col-2 movie-container-home">
+        <%=image_tag movie.poster_url, class: 'movie-img-home rounded' %>
+        <div class="title-container-home">
+          <p><%= movie.title.slice(0,18)+(movie.title.length > 18 ? "..." : "") %></p>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
