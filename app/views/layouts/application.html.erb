@@ -13,17 +13,19 @@
 
   <body>
       <%= render 'shared/navbar'%>
-    <%= yield %>
-      <% if notice %>
-        <div class="alert alert-warning" role="alert">
-          <%= notice %>
-        </div>
-      <% end %>
-      <% if alert %>
-        <div class="alert alert-danger" role="alert">
-          <%= alert %>
-        </div>
-      <% end %>
+      <div class="buster-content pb-5">
+        <%= yield %>
+          <% if notice %>
+            <div class="alert alert-warning" role="alert">
+              <%= notice %>
+            </div>
+          <% end %>
+          <% if alert %>
+            <div class="alert alert-danger" role="alert">
+              <%= alert %>
+            </div>
+          <% end %>
+      </div>
       <%= render 'shared/footer' %>
   </body>
 </html>

@@ -13,11 +13,13 @@
 
 body {
   background-color: white;
-  height: 100%;
-  min-height: 100%;
-  position: relative;
 }
 
-html {
+html, body {
+  height: auto;
   min-height: 100%;
+}
+
+.buster-content {
+  min-height: 77vh !important;
 }
