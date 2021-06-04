@@ -3,7 +3,7 @@
   background-repeat: no-repeat;
   background-position:top;
   height: 300px;
-  width: 380px;
+  min-width: 380px !important;
   display: flex;
   justify-content: center;
   align-items:flex-end;

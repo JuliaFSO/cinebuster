@@ -5,17 +5,19 @@
 
   <div class="cards d-flex row col-8 flex-row ml-auto justify-content-start" >
     <% @showtimes.each do |showtime| %>
-      <div class="col-5 card-category d-flex align-items-end mx-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1597002973885-8c90683fa6e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1045&q=80)">
-        <div class="d-inline-flex flex-grow-1">
-          <div class="w-100 pl-3">
-            <h4> <%= showtime.room %> </h4>
-            <p>R$ <%= showtime.price %></p>
-          </div>
-          <div class="flex-shrink-1 align-item-end pr-3 pt-3">
-            <p> <%= showtime.session_time.strftime("%d/%m") %> </p>
+      <%= link_to showtime_path(showtime) do %>
+        <div class="col-5 card-category d-flex align-items-end mx-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1597002973885-8c90683fa6e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1045&q=80)">
+          <div class="d-inline-flex flex-grow-1">
+            <div class="w-100 pl-3">
+              <h4> <%= showtime.room %> </h4>
+              <p>R$ <%= showtime.price %></p>
+            </div>
+            <div class="flex-shrink-1 align-item-end pr-3 pt-3">
+              <p> <%= showtime.session_time.strftime("%d/%m") %> </p>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 
