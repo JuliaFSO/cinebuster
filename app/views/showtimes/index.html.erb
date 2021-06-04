@@ -6,7 +6,7 @@
     <div class="d-flex flex-wrap row justify-content-around align-items-center" >
       <% @showtimes.each do |showtime| %>
         <%= link_to showtime_path(showtime) do %>
-          <div class="card-category d-flex align-items-end mr-2 mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1597002973885-8c90683fa6e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1045&q=80)">
+          <div class="card-category d-flex align-items-end mr-2 mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= IMG_ARRAY.sample %>')">
             <div class="d-inline-flex flex-grow-1">
               <div class="w-100 pl-3">
                 <h4> <%= showtime.room %> </h4>
