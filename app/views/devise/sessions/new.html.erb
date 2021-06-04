@@ -18,10 +18,10 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "LOGIN" , class:'btn mb-2 btn-block' %>
+        <%= f.button :submit, "LOGIN", class:'btn mb-2 btn-block' %>
       </div>
     <% end %>
 
-    <%= link_to "Cadastre-se", new_password_path %>
+    <%= render "devise/shared/links" %>
   </div>
 </div>
