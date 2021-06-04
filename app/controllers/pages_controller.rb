@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @showtimes = Showtime.where(available: true).sample(4)
+    @movies = Movie.all.sample(6)
   end
 end
