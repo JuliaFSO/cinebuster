@@ -1,16 +1,26 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
 
-<h1>Sessões</h1>
-<% @showtimes.each do |showtime| %>
-    <%= link_to showtime_path(showtime) do %>
-      <div class="card-category">
-        <%= showtime.room %> <%= showtime.session_time %>
-      </div>
-    <% end %>
-    <hr>
-  <% end %>
+  <h1 class="text-center m-5">Sessões</h1>
 
-<%= link_to 'Anuncie nova sessão', new_showtime_path(@showtime) %>
-
+    <div class="d-flex flex-wrap row justify-content-around align-items-center" >
+      <% @showtimes.each do |showtime| %>
+        <%= link_to showtime_path(showtime) do %>
+          <div class="card-category d-flex align-items-end mr-2 mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1597002973885-8c90683fa6e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1045&q=80)">
+            <div class="d-inline-flex flex-grow-1">
+              <div class="w-100 pl-3">
+                <h4> <%= showtime.room %> </h4>
+                <p>R$ <%= showtime.price %></p>
+              </div>
+              <div class="flex-shrink-1 align-item-end pr-3 pt-3">
+                <p> <%= showtime.session_time.strftime("%d/%m") %> </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <div class="text-center m-5">
+    <%= link_to 'Anuncie nova sessão', new_showtime_path(@showtime), class:"btn btn-dark" %>
+  </div>
 </div>
